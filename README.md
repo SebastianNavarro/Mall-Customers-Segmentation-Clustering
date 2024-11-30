@@ -383,4 +383,22 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar en 
 * **DBSCAN:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.289699, eps=0.5, min_samples=10 y 4 clusters.
 * **Affinity Propagation:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.424915, damping=0.7, preference=-50.0, affinity=euclidean y 5 clusters.
 
-En general, los resultados de clusterización mejoraron significativamente después de aplicar el autoencoder overcomplete, lo que sugiere que la reducción de dimensionalidad ayudó a mejorar la segmentación de los clientes. Los algoritmos de clustering que se destacaron en términos de métricas de evaluación fueron K-means y Agglomerative Clustering, con un Silhouette de 0.445360 y 0.425392, respectivamente. Estos algoritmos podrían ser útiles para el centro comercial para segmentar a sus clientes en grupos con características similares y adaptar sus estrategias de marketing y publicidad en consecuencia.
+En general, los resultados de clusterización mejoraron significativamente después de aplicar el autoencoder overcomplete, lo que sugiere que la reducción de dimensionalidad ayudó a mejorar la segmentación de los clientes. 
+Los algoritmos de clustering que se destacaron en términos de métricas de evaluación fueron K-means y Agglomerative Clustering, con un Silhouette de 0.445360 con 5 clusters y 0.425392 con 6 clusters, respectivamente. Estos resultados sugieren que los clientes pueden agruparse en 5-6 segmentos principales en función de sus características de edad, ingresos y puntaje de gasto. 
+
+Los 5 clusters identificados por K-means podrían ser:
+1. **Cluster 0:** Clientes con ingresos bajos y puntajes de gasto bajos.
+2. **Cluster 1:** Clientes con ingresos medios y puntajes de gasto medios.
+3. **Cluster 2:** Clientes con ingresos altos y puntajes de gasto altos.
+4. **Cluster 3:** Clientes con ingresos bajos y puntajes de gasto altos.
+5. **Cluster 4:** Clientes con ingresos altos y puntajes de gasto bajos.
+
+Los 6 clusters identificados por Agglomerative Clustering podrían ser:
+1. **Cluster 0:** Clientes con ingresos bajos y puntajes de gasto bajos.
+2. **Cluster 1:** Clientes con ingresos medios y puntajes de gasto medios.
+3. **Cluster 2:** Clientes con ingresos altos y puntajes de gasto altos.
+4. **Cluster 3:** Clientes con ingresos bajos y puntajes de gasto altos.
+5. **Cluster 4:** Clientes con ingresos altos y puntajes de gasto bajos.
+6. **Cluster 5:** Clientes con ingresos medios y puntajes de gasto bajos.
+
+Los resultados de clusterización pueden ser útiles para el centro comercial para comprender mejor a sus clientes y personalizar sus estrategias de marketing y ventas en función de las necesidades y preferencias de cada segmento de clientes.
