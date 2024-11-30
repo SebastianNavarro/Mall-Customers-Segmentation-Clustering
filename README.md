@@ -109,7 +109,6 @@ El método del codo sugiere que el número óptimo de clusters puede estar entre
 
 #### Agglomerative Clustering
 ![Agglomerative Clustering](Images/original/agglomerative/1.png)
-
 | Clusters | Silhouette | Calinski-Harabasz | Davies-Bouldin |
 |----------|------------|-------------------|----------------|
 | 2        | 0.320484   | 99.220962         | 1.300519       |
@@ -120,7 +119,6 @@ El método del codo sugiere que el número óptimo de clusters puede estar entre
 | 7        | 0.415557   | 129.369861        | 0.827022       |
 | 8        | 0.428048   | 128.274532        | 0.803267       |
 
-
 ![Agglomerative Clustering](Images/original/agglomerative/2.png)
 
 ##### Mejores resultados para cada métrica
@@ -130,12 +128,10 @@ El método del codo sugiere que el número óptimo de clusters puede estar entre
 
 ##### Dendrograma
 ![Agglomerative Clustering](Images/original/agglomerative/3.png)
-
 Parecen haber alrededor de 6-8 segmentos principales de clientes en función de la estructura del dendrograma.
 
 #### Gaussian Mixture Model (GMM)
 ![GMM](Images/original/gmm/1.png)
-
 | Clusters | Silhouette | Calinski-Harabasz | Davies-Bouldin |
 |----------|------------|-------------------|----------------|
 | 2        | 0.326157   | 103.457496        | 1.271407       |
@@ -145,7 +141,6 @@ Parecen haber alrededor de 6-8 segmentos principales de clientes en función de 
 | 6        | 0.405264   | 116.085254        | 0.883334       |
 | 7        | 0.405600   | 119.797616        | 0.871108       |
 | 8        | 0.391781   | 124.365841        | 0.845886       |
-
 
 ![GMM](Images/original/gmm/2.png)
 
@@ -161,7 +156,6 @@ Parecen haber alrededor de 6-8 segmentos principales de clientes en función de 
 | `min_samples`  | 3, 5, 10                         |
 
 ![DBSCAN](Images/original/dbscan/2.png)
-
 | Eps  | Min_Samples | Clusters | Silhouette  | Calinski-Harabasz | Davies-Bouldin |
 |------|-------------|----------|-------------|-------------------|----------------|
 | 0.2  | 3           | 11       | -0.326903   | 2.838314          | 1.611787       |
@@ -183,7 +177,6 @@ Parecen haber alrededor de 6-8 segmentos principales de clientes en función de 
 | 0.8  | 10          | 1        | -1.000000   | -1.000000         | -1.000000      |
 | 1.0  | 10          | 1        | -1.000000   | -1.000000         | -1.000000      |
 
-
 ![DBSCAN](Images/original/dbscan/3.png)
 
 ##### Mejores resultados para cada métrica
@@ -193,7 +186,6 @@ Parecen haber alrededor de 6-8 segmentos principales de clientes en función de 
 
 ##### Método de k-distancias
 ![DBSCAN](Images/original/dbscan/1.png)
-
 El método de k-distancias sugiere que el número óptimo de eps puede estar entre 0.6 y 0.8.
 
 #### Affinity Propagation
@@ -209,9 +201,7 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar ent
 | 0.9            | -50              | euclidean     |
 | 0.9            | -100             | euclidean     |
 
-
 ![Affinity Propagation](Images/original/affinity/1.png)
-
 
 | Damping | Preference | Affinity  | Clusters | Silhouette | Calinski-Harabasz | Davies-Bouldin |
 |---------|------------|-----------|----------|------------|-------------------|----------------|
@@ -225,9 +215,7 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar ent
 | 0.9     | -50.0      | euclidean | 4        | 0.404354   | 123.816043        | 0.941534       |
 | 0.9     | -100.0     | euclidean | 3        | 0.336460   | 96.665855         | 0.994483       |
 
-
 ![Affinity Propagation](Images/original/affinity/2.png)
-
 
 ##### Mejores resultados para cada métrica
 * **Silhouette:** 0.404354 con `damping=0.5`, `preference=-50.0`, `affinity=euclidean` y `clusters=4`.
