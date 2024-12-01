@@ -371,34 +371,134 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar en 
 
 ![Affinity Propagation](Images/reduced/affinity/2.png)
 
-##### Mejores resultados para cada métrica
-* **Silhouette:** 0.424915 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
-* **Calinski-Harabasz:** 136.562289 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
-* **Davies-Bouldin:** 0.863096 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
+### Mejores Resultados para cada método de clusterización	
 
-## Conclusiones
-* **K-means:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.445360 y 5 clusters.
-* **Agglomerative Clustering:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.425392 y 6 clusters.
-* **Gaussian Mixture Model (GMM):** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.279981 y 2 clusters.
-* **DBSCAN:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.289699, eps=0.5, min_samples=10 y 4 clusters.
-* **Affinity Propagation:** Se obtuvieron mejores resultados con el dataset reducido, con un Silhouette de 0.424915, damping=0.7, preference=-50.0, affinity=euclidean y 5 clusters.
+| **Técnica**                  | **Dataset**           | **Métrica**            | **Valor**       | **Configuración**                                      |
+|------------------------------|-----------------------|------------------------|-----------------|------------------------------------------------------|
+| **K-means**                  | Original             | Silhouette             | 0.437316        | `k=6` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 138.225959      | `k=6` clusters                                       |
+|                              |                      | Davies-Bouldin         | 0.823786        | `k=6` clusters                                       |
+|                              | Autoencoder          | Silhouette             | 0.445360        | `k=5` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 141.434474      | `k=5` clusters                                       |
+|                              |                      | Davies-Bouldin         | 0.827355        | `k=5` clusters                                       |
+| **Agglomerative Clustering** | Original             | Silhouette             | 0.428048        | `k=8` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 129.369861      | `k=7` clusters                                       |
+|                              |                      | Davies-Bouldin         | 0.803267        | `k=8` clusters                                       |
+|                              | Autoencoder          | Silhouette             | 0.425392        | `k=6` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 133.092029      | `k=6` clusters                                       |
+|                              |                      | Davies-Bouldin         | 0.816922        | `k=6` clusters                                       |
+| **Gaussian Mixture Model**   | Original             | Silhouette             | 0.405600        | `k=7` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 119.797616      | `k=7` clusters                                       |
+|                              |                      | Davies-Bouldin         | 0.871108        | `k=7` clusters                                       |
+|                              | Autoencoder          | Silhouette             | 0.279981        | `k=2` clusters                                       |
+|                              |                      | Calinski-Harabasz      | 79.084718       | `k=2` clusters                                       |
+|                              |                      | Davies-Bouldin         | 1.316289        | `k=2` clusters                                       |
+| **DBSCAN**                   | Original             | Silhouette             | 0.285372        | `eps=0.6`, `min_samples=10`, `clusters=4`           |
+|                              |                      | Calinski-Harabasz      | 52.546040       | `eps=0.6`, `min_samples=10`, `clusters=4`           |
+|                              |                      | Davies-Bouldin         | 1.423567        | `eps=0.6`, `min_samples=10`, `clusters=4`           |
+|                              | Autoencoder          | Silhouette             | 0.289699        | `eps=0.5`, `min_samples=10`, `clusters=4`           |
+|                              |                      | Calinski-Harabasz      | 53.798595       | `eps=0.5`, `min_samples=10`, `clusters=4`           |
+|                              |                      | Davies-Bouldin         | 1.234629        | `eps=0.5`, `min_samples=10`, `clusters=4`           |
+| **Affinity Propagation**     | Original             | Silhouette             | 0.404354        | `damping=0.5`, `preference=-50.0`, `clusters=4`     |
+|                              |                      | Calinski-Harabasz      | 131.307307      | `damping=0.7`, `preference=None`, `clusters=12`     |
+|                              |                      | Davies-Bouldin         | 0.941534        | `damping=0.5`, `preference=-50.0`, `clusters=4`     |
+|                              | Autoencoder          | Silhouette             | 0.424915        | `damping=0.7`, `preference=-50.0`, `clusters=5`     |
+|                              |                      | Calinski-Harabasz      | 136.562289      | `damping=0.7`, `preference=-50.0`, `clusters=5`     |
+|                              |                      | Davies-Bouldin         | 0.863096        | `damping=0.7`, `preference=-50.0`, `clusters=5`     |
 
-En general, los resultados de clusterización mejoraron significativamente después de aplicar el autoencoder overcomplete, lo que sugiere que la reducción de dimensionalidad ayudó a mejorar la segmentación de los clientes. 
-Los algoritmos de clustering que se destacaron en términos de métricas de evaluación fueron K-means y Agglomerative Clustering, con un Silhouette de 0.445360 con 5 clusters y 0.425392 con 6 clusters, respectivamente. Estos resultados sugieren que los clientes pueden agruparse en 5-6 segmentos principales en función de sus características de edad, ingresos y puntaje de gasto. 
 
-Los 5 clusters identificados por K-means podrían ser:
-1. **Cluster 0:** Clientes con ingresos bajos y puntajes de gasto bajos.
-2. **Cluster 1:** Clientes con ingresos medios y puntajes de gasto medios.
-3. **Cluster 2:** Clientes con ingresos altos y puntajes de gasto altos.
-4. **Cluster 3:** Clientes con ingresos bajos y puntajes de gasto altos.
-5. **Cluster 4:** Clientes con ingresos altos y puntajes de gasto bajos.
+### Mejores resultados globales por métrica y algoritmo
 
-Los 6 clusters identificados por Agglomerative Clustering podrían ser:
-1. **Cluster 0:** Clientes con ingresos bajos y puntajes de gasto bajos.
-2. **Cluster 1:** Clientes con ingresos medios y puntajes de gasto medios.
-3. **Cluster 2:** Clientes con ingresos altos y puntajes de gasto altos.
-4. **Cluster 3:** Clientes con ingresos bajos y puntajes de gasto altos.
-5. **Cluster 4:** Clientes con ingresos altos y puntajes de gasto bajos.
-6. **Cluster 5:** Clientes con ingresos medios y puntajes de gasto bajos.
+| **Técnica**                  | **Métrica**          | **Valor**       | **Configuración**                                      |
+|------------------------------|----------------------|-----------------|------------------------------------------------------|
+| **K-means**                  | Silhouette          | 0.445360        | Dataset Autoencoder, `k=5` clusters                 |
+|                              | Calinski-Harabasz   | 141.434474      | Dataset Autoencoder, `k=5` clusters                 |
+|                              | Davies-Bouldin      | 0.823786        | Dataset Original, `k=6` clusters                    |
+| **Agglomerative Clustering** | Silhouette          | 0.428048        | Dataset Original, `k=8` clusters                    |
+|                              | Calinski-Harabasz   | 133.092029      | Dataset Autoencoder, `k=6` clusters                 |
+|                              | Davies-Bouldin      | 0.803267        | Dataset Original, `k=8` clusters                    |
+| **Gaussian Mixture Model**   | Silhouette          | 0.405600        | Dataset Original, `k=7` clusters                    |
+|                              | Calinski-Harabasz   | 119.797616      | Dataset Original, `k=7` clusters                    |
+|                              | Davies-Bouldin      | 0.871108        | Dataset Original, `k=7` clusters                    |
+| **DBSCAN**                   | Silhouette          | 0.289699        | Dataset Autoencoder, `eps=0.5`, `min_samples=10`, `clusters=4` |
+|                              | Calinski-Harabasz   | 53.798595       | Dataset Autoencoder, `eps=0.5`, `min_samples=10`, `clusters=4` |
+|                              | Davies-Bouldin      | 1.234629        | Dataset Autoencoder, `eps=0.5`, `min_samples=10`, `clusters=4` |
+| **Affinity Propagation**     | Silhouette          | 0.424915        | Dataset Autoencoder, `damping=0.7`, `preference=-50.0`, `clusters=5` |
+|                              | Calinski-Harabasz   | 136.562289      | Dataset Autoencoder, `damping=0.7`, `preference=-50.0`, `clusters=5` |
+|                              | Davies-Bouldin      | 0.863096        | Dataset Autoencoder, `damping=0.7`, `preference=-50.0`, `clusters=5` |
 
-Los resultados de clusterización pueden ser útiles para el centro comercial para comprender mejor a sus clientes y personalizar sus estrategias de marketing y ventas en función de las necesidades y preferencias de cada segmento de clientes.
+
+## Conclusiones sobre los resultados de clusterización
+
+### 1. Rendimiento general de los métodos
+- **K-means** es el método más consistente, alcanzando los mejores valores en las tres métricas principales (Silhouette, Calinski-Harabasz y Davies-Bouldin). Esto indica su capacidad para formar clusters bien definidos.
+- **Agglomerative Clustering** obtuvo resultados competitivos, especialmente en la métrica Davies-Bouldin, con un valor óptimo de 0.803267 en el dataset original.
+- Los métodos **Gaussian Mixture Model (GMM)**, **DBSCAN** y **Affinity Propagation** tuvieron un desempeño inferior en comparación, con valores más bajos en las métricas de calidad.
+
+### 2. Impacto del dataset (Original vs. Autoencoder)
+- El dataset transformado mediante **autoencoder** mejoró los resultados para **K-means**, logrando:
+  - El mejor valor de **Silhouette** (0.445360).
+  - El mejor valor de **Calinski-Harabasz** (141.434474).
+  Esto sugiere que la reducción de dimensionalidad y extracción de características relevantes beneficia a los métodos de clusterización basados en centroides.
+- Para **DBSCAN** y **Affinity Propagation**, se observó una leve mejora al usar el dataset autoencoder, aunque los valores absolutos siguen siendo bajos en comparación con **K-means**.
+- **Agglomerative Clustering** mostró resultados mixtos, con un mejor desempeño en **Davies-Bouldin** al usar el dataset original.
+
+### 3. Configuraciones óptimas
+- **K-means** mostró su mejor desempeño con:
+  - `k=5` para maximizar **Silhouette** y **Calinski-Harabasz**.
+  - `k=6` para minimizar **Davies-Bouldin**.
+- **Agglomerative Clustering** obtuvo su mejor resultado con `k=8` en el dataset original.
+- **GMM** mostró su mejor configuración con `k=7` en el dataset original, aunque los resultados fueron inferiores a los de **K-means** y **Agglomerative Clustering**.
+- **DBSCAN** y **Affinity Propagation** tuvieron mejores valores de **Silhouette** y **Davies-Bouldin** con configuraciones específicas:
+  - DBSCAN: `eps=0.5`, `min_samples=10`.
+  - Affinity Propagation: `damping=0.7`.
+
+### 4. Número óptimo de clusters
+- Basado en los resultados de las métricas de evaluación, el **número óptimo de clusters** varía según el método:
+  - Para **K-means**, los resultados sugieren que **5 clusters** son óptimos en general, dado el equilibrio entre las métricas.
+  - Para **Agglomerative Clustering**, los resultados sugieren entre **6 y 8 clusters**, dependiendo de la métrica priorizada.
+  - Sin embargo, considerando el rendimiento general y la estabilidad de **K-means**, el número **5** se destaca como la opción más robusta y confiable.
+
+### 5. Elección del método según métrica
+- Para maximizar **Silhouette**, el mejor enfoque es **K-means** con el dataset autoencoder (`k=5`).
+- Para maximizar **Calinski-Harabasz**, **K-means** también es superior, nuevamente con el dataset autoencoder (`k=5`).
+- Para minimizar **Davies-Bouldin**, **Agglomerative Clustering** con el dataset original (`k=8`) es la mejor opción.
+
+### 6. Recomendaciones generales
+- El uso de un autoencoder para la transformación del dataset resulta beneficioso en la mayoría de los casos, especialmente para **K-means**.
+- **K-means** y **Agglomerative Clustering** destacan como los métodos principales para datasets de estas características.
+- Métodos como **DBSCAN** y **Affinity Propagation** podrían no ser ideales para este tipo de datos, dado que presentan menor cohesión en sus clusters según las métricas utilizadas.
+
+### Conclusión final
+**K-means con 5 clusters** es la configuración más robusta y recomendable para este análisis, especialmente con la ayuda de técnicas de reducción de dimensionalidad como autoencoders.
+
+![K-means](Images/mejor.png)
+
+### Interpretación de los Clusters
+
+1. **Cluster 1 (puntos turquesa)**:
+   - **Características**: Clientes más jóvenes (aproximadamente entre 10 y 20 años), con ingresos anuales bajos, pero con altos niveles de gasto.
+   - **Interpretación**: Estos clientes podrían estar en una etapa temprana de su vida profesional, pero tienen un comportamiento de compra que supera sus ingresos, lo que podría indicar que tienen un alto poder adquisitivo relativo, quizás debido a factores como el apoyo familiar.
+
+2. **Cluster 2 (puntos amarillos)**:
+   - **Características**: Clientes jóvenes (15-20 años) con ingresos anuales altos y puntajes de gasto altos.
+   - **Interpretación**: Este grupo podría estar compuesto por jóvenes que ya tienen una fuente de ingresos significativa y, por lo tanto, tienen la capacidad de gastar en productos o servicios de alta gama. Es un grupo que combina juventud con un poder adquisitivo elevado.
+
+3. **Cluster 3 (puntos morados)**:
+   - **Características**: Clientes de mayor edad (entre 30 y 60 años), con ingresos anuales más altos, pero con puntajes de gasto bajos.
+   - **Interpretación**: Este grupo refleja clientes que tienen una situación financiera estable debido a sus ingresos más altos, pero su comportamiento de gasto es más conservador. Pueden ser personas más responsables o enfocadas en el ahorro.
+
+4. **Cluster 4 (puntos verdes)**:
+   - **Características**: Clientes de edades variadas (entre 20 y 60 años), con ingresos medios a altos, pero puntajes de gasto bajos.
+   - **Interpretación**: Este grupo parece estar formado por clientes con ingresos estables, pero que no gastan tanto. Esto podría deberse a un enfoque más moderado del consumo, o bien a una falta de interés por los productos que podrían ofrecerse.
+
+5. **Cluster 5 (puntos azules)**:
+   - **Características**: Clientes jóvenes (entre 15 y 25 años) con ingresos anuales altos y puntajes de gasto altos.
+   - **Interpretación**: Al igual que el **Cluster 2**, este grupo está compuesto por jóvenes con alto poder adquisitivo, pero la diferencia puede ser que este cluster está más concentrado en el rango de edad 15-25 años. Este grupo podría incluir personas en sus primeros años de carrera profesional, pero con ingresos relativamente altos.
+
+### Resumen:
+- **Cluster 1**: Jóvenes con bajo ingreso, pero alto gasto.
+- **Cluster 2**: Jóvenes con alto ingreso y alto gasto.
+- **Cluster 3**: Adultos mayores con alto ingreso y bajo gasto.
+- **Cluster 4**: Adultos con ingreso medio a alto y bajo gasto.
+- **Cluster 5**: Jóvenes con alto ingreso y alto gasto.
