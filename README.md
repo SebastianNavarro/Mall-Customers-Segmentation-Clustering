@@ -440,7 +440,7 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar en 
 ## Conclusiones sobre los resultados de clusterización
 
 ### 1. Rendimiento general de los métodos
-- **K-means** es el método más consistente, alcanzando los mejores valores en las tres métricas principales (Silhouette y Calinski-Harabasz). Esto indica su capacidad para formar clusters bien definidos.
+- **K-means** es el método más consistente, alcanzando los mejores valores en las dos métricas principales (Silhouette y Calinski-Harabasz). Esto indica su capacidad para formar clusters bien definidos.
 - **Agglomerative Clustering** obtuvo resultados competitivos, especialmente en la métrica Davies-Bouldin, con un valor óptimo de 0.803267 en el dataset original.
 - Los métodos **Gaussian Mixture Model (GMM)**, **DBSCAN** y **Affinity Propagation** tuvieron un desempeño inferior en comparación, con valores más bajos en las métricas de calidad.
 
