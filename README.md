@@ -105,6 +105,7 @@ Dado que las variables no siguen una distribución normal, se decidió escalar l
 
 ##### Método del codo
 ![K-means](Images/original/kmeans/2.png)
+
 El método del codo sugiere que el número óptimo de clusters puede estar entre 4 y 6.
 
 #### Agglomerative Clustering
@@ -186,6 +187,7 @@ Parecen haber alrededor de 6-8 segmentos principales de clientes en función de 
 
 ##### Método de k-distancias
 ![DBSCAN](Images/original/dbscan/1.png)
+
 El método de k-distancias sugiere que el número óptimo de eps puede estar entre 0.6 y 0.8.
 
 #### Affinity Propagation
@@ -256,6 +258,7 @@ Se observa que el autoencoder overcomplete tiene el menor error cuadrático medi
 
 ##### Método del codo
 ![K-means](Images/reduced/kmeans/2.png)
+
 El método del codo sugiere que el número óptimo de clusters es 5.
 
 #### Agglomerative Clustering
@@ -340,6 +343,7 @@ Parecen haber alrededor de 6 a 8 segmentos principales de clientes en función d
 
 ##### Método de k-distancias
 ![DBSCAN](Images/reduced/dbscan/1.png)
+
 El método de k-distancias sugiere que el número óptimo de eps puede estar en 0.7.
 
 #### Affinity Propagation
@@ -370,6 +374,11 @@ El método de k-distancias sugiere que el número óptimo de eps puede estar en 
 | 0.9     | -100.0     | euclidean | 2        | 0.340950   | 116.735288        | 1.204345       |
 
 ![Affinity Propagation](Images/reduced/affinity/2.png)
+
+##### Mejores resultados para cada métrica
+* **Silhouette:** 0.424915 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
+* **Calinski-Harabasz:** 136.562289 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
+* **Davies-Bouldin:** 0.863096 con `damping=0.7`, `preference=-50.0`, `affinity=euclidean` y `clusters=5`.
 
 ### Mejores Resultados para cada método de clusterización	
 
