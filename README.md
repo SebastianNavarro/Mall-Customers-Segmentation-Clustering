@@ -67,18 +67,17 @@ Podemos ver que la cantidad de clientes femeninos es significativamente mayor qu
 * Se pueden observar algunos grupos o "racimos" de clientes con características similares en términos de edad, ingresos y puntaje de gasto.
 
 ![Visualización de variables](Images/correlacion.png)
-1. Correlaciones más fuertes:
-* El género y el índice de gasto tienen una correlación positiva fuerte (1.0).
-* La edad y el ingreso anual también tienen una correlación positiva moderadamente fuerte (0.07).
+Se observa que no hay una correlación fuerte entre ninguna de las variables. Los colores predominantes son cercanos al blanco y celeste, lo que sugiere que las relaciones entre las variables son muy débiles.
 
-2. Correlaciones más débiles:
-* El género y el ingreso anual tienen una correlación prácticamente nula (0.02).
-* La edad y el índice de gasto tienen una correlación negativa débil (-0.06).
+Algunas observaciones son:
+* El Género y la Edad tienen una correlación positiva moderada (0,07).
+* El Género y el Ingreso Anual tienen una correlación positiva débil (0,02).
+* El Género y la Puntuación de Gasto tienen una correlación negativa débil (-0,06).
+* La Edad y el Ingreso Anual no tienen correlación (0,00).
+* La Edad y la Puntuación de Gasto tienen una correlación negativa moderada (-0,33).
+* El Ingreso Anual y la Puntuación de Gasto tienen una correlación positiva débil (0,01).
 
-3. Correlaciones intermedias:
-
-* La edad y el ingreso anual tienen una correlación negativa moderada (-0.33).
-* El ingreso anual y el índice de gasto tienen una correlación positiva débil (0.01).
+Por tanto, las variables que tienen una correlación más fuerte son la Edad y la Puntuación de Gasto, con una correlación negativa moderada de -0,33. las variables analizadas son en gran medida independientes entre sí, ya que no existe una relación clara o significativa entre el género, la edad, el ingreso anual y la puntuación de gasto.
 
 ## Clusterización
 ### Dataset Original
